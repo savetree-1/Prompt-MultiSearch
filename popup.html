@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt MultiSearch</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Prompt MultiSearch</h1>
+            <button id="settingsBtn" class="settings-btn" title="Settings">⚙️</button>
+        </header>
+        
+        <div class="input-section">
+            <textarea id="promptInput" placeholder="Enter your prompt here..."></textarea>
+            <button id="searchBtn" class="search-btn">
+                <span id="searchText">Search All LLMs</span>
+                <div id="loadingSpinner" class="spinner hidden"></div>
+            </button>
+        </div>
+        
+        <div id="resultsContainer" class="results-container hidden">
+            <div class="result-card" id="openai-card">
+                <div class="card-header">
+                    <h3>ChatGPT</h3>
+                    <div class="status-indicator" id="openai-status"></div>
+                </div>
+                <div class="card-body" id="openai-result">
+                    <div class="loading-text">Loading...</div>
+                </div>
+            </div>
+            
+            <div class="result-card" id="gemini-card">
+                <div class="card-header">
+                    <h3>Gemini</h3>
+                    <div class="status-indicator" id="gemini-status"></div>
+                </div>
+                <div class="card-body" id="gemini-result">
+                    <div class="loading-text">Loading...</div>
+                </div>
+            </div>
+            
+            <div class="result-card" id="claude-card">
+                <div class="card-header">
+                    <h3>Claude</h3>
+                    <div class="status-indicator" id="claude-status"></div>
+                </div>
+                <div class="card-body" id="claude-result">
+                    <div class="loading-text">Loading...</div>
+                </div>
+            </div>
+            
+            <div class="result-card" id="mistral-card">
+                <div class="card-header">
+                    <h3>Mistral</h3>
+                    <div class="status-indicator" id="mistral-status"></div>
+                </div>
+                <div class="card-body" id="mistral-result">
+                    <div class="loading-text">Loading...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="errorMessage" class="error-message hidden"></div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt MultiSearch - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Settings — API Keys</h1>
+            <p class="subtitle">Configure your API keys to enable searching across different LLMs</p>
+        </header>
+
+        <div class="content">
+            <div class="api-section">
+                <div class="api-item">
+                    <div class="api-info">
+                        <h3>OpenAI (ChatGPT)</h3>
+                        <p>Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></p>
+                    </div>
+                    <div class="api-input">
+                        <input type="password" id="openai-key" placeholder="sk-..." />
+                        <button type="button" class="toggle-visibility" data-input="openai-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="openai">Save</button>
+                    </div>
+                    <div class="status-message" id="openai-status"></div>
+                </div>
+
+                <div class="api-item">
+                    <div class="api-info">
+                        <h3>Google Gemini</h3>
+                        <p>Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></p>
+                    </div>
+                    <div class="api-input">
+                        <input type="password" id="gemini-key" placeholder="AIza..." />
+                        <button type="button" class="toggle-visibility" data-input="gemini-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="gemini">Save</button>
+                    </div>
+                    <div class="status-message" id="gemini-status"></div>
+                </div>
+
+                <div class="api-item">
+                    <div class="api-info">
+                        <h3>Anthropic Claude</h3>
+                        <p>Get your API key from <a href="https://console.anthropic.com/" target="_blank">Anthropic Console</a></p>
+                    </div>
+                    <div class="api-input">
+                        <input type="password" id="claude-key" placeholder="sk-ant-..." />
+                        <button type="button" class="toggle-visibility" data-input="claude-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="claude">Save</button>
+                    </div>
+                    <div class="status-message" id="claude-status"></div>
+                </div>
+
+                <div class="api-item">
+                    <div class="api-info">
+                        <h3>Mistral AI</h3>
+                        <p>Get your API key from <a href="https://console.mistral.ai/" target="_blank">Mistral Console</a></p>
+                    </div>
+                    <div class="api-input">
+                        <input type="password" id="mistral-key" placeholder="..." />
+                        <button type="button" class="toggle-visibility" data-input="mistral-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="mistral">Save</button>
+                    </div>
+                    <div class="status-message" id="mistral-status"></div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button type="button" id="saveAllBtn" class="save-all-btn">Save All Keys</button>
+                <button type="button" id="clearAllBtn" class="clear-all-btn">Clear All Keys</button>
+                <button type="button" id="testAllBtn" class="test-all-btn">Test All Connections</button>
+            </div>
+
+            <div class="info-section">
+                <h3>ℹ️ Important Notes</h3>
+                <ul>
+                    <li><strong>Security:</strong> Your API keys are stored locally in your browser and never sent to third parties</li>
+                    <li><strong>Costs:</strong> Each API call may incur costs based on your provider's pricing</li>
+                    <li><strong>Rate Limits:</strong> Be mindful of each provider's rate limits to avoid errors</li>
+                    <li><strong>Privacy:</strong> Your prompts and responses are only sent to the respective AI providers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="notification" class="notification hidden"></div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

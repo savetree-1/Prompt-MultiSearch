@@ -1,0 +1,36 @@
+{
+  "name": "prompt-multisearch",
+  "version": "1.0.0",
+  "description": "A Chrome extension to search across multiple AI language models simultaneously",
+  "main": "background.js",
+  "scripts": {
+    "build": "echo 'No build process required for Chrome extension'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "chatgpt",
+    "gemini",
+    "claude",
+    "mistral",
+    "language-models",
+    "multisearch"
+  ],
+  "author": "Prompt MultiSearch Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/prompt-multisearch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/prompt-multisearch/issues"
+  },
+  "homepage": "https://github.com/yourusername/prompt-multisearch#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
