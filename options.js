@@ -215,10 +215,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validateApiKey(llm, key) {
         const patterns = {
-            huggingface: /^hf_[a-zA-Z0-9]{32,}$/,
-            cohere: /^[a-zA-Z0-9\-_]{40,}$/,
-            ai21: /^[a-zA-Z0-9]{32,}$/,
-            groq: /^gsk_[a-zA-Z0-9]{52}$/
+            huggingface: /^hf_[a-zA-Z0-9]{37}$/,
+            cohere: /^[a-zA-Z0-9]{40,}$/,
+            ai21: /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i,
+            groq: /^gsk_[a-zA-Z0-9_-]{50,}$/
         };
         
         const pattern = patterns[llm];
