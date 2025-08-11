@@ -151,3 +151,6 @@ Thumbs.db
 *.crx
 *.pem
 *.zip
+
+# Screenshots (for documentation only)
+screenshot-*.png
