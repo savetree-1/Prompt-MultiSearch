@@ -10,61 +10,61 @@
     <div class="container">
         <header>
             <h1>Settings — API Keys</h1>
-            <p class="subtitle">Configure your API keys to enable searching across different LLMs</p>
+            <p class="subtitle">Configure your API keys to enable searching across different free AI models</p>
         </header>
 
         <div class="content">
             <div class="api-section">
                 <div class="api-item">
                     <div class="api-info">
-                        <h3>OpenAI (ChatGPT)</h3>
-                        <p>Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></p>
+                        <h3>Hugging Face</h3>
+                        <p>Get your free API key from <a href="https://huggingface.co/settings/tokens" target="_blank">Hugging Face Tokens</a></p>
                     </div>
                     <div class="api-input">
-                        <input type="password" id="openai-key" placeholder="sk-..." />
-                        <button type="button" class="toggle-visibility" data-input="openai-key">👁️</button>
-                        <button type="button" class="save-single" data-llm="openai">Save</button>
+                        <input type="password" id="huggingface-key" placeholder="hf_..." />
+                        <button type="button" class="toggle-visibility" data-input="huggingface-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="huggingface">Save</button>
                     </div>
-                    <div class="status-message" id="openai-status"></div>
+                    <div class="status-message" id="huggingface-status"></div>
                 </div>
 
                 <div class="api-item">
                     <div class="api-info">
-                        <h3>Google Gemini</h3>
-                        <p>Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></p>
+                        <h3>Cohere</h3>
+                        <p>Get your free API key from <a href="https://dashboard.cohere.ai/api-keys" target="_blank">Cohere Dashboard</a></p>
                     </div>
                     <div class="api-input">
-                        <input type="password" id="gemini-key" placeholder="AIza..." />
-                        <button type="button" class="toggle-visibility" data-input="gemini-key">👁️</button>
-                        <button type="button" class="save-single" data-llm="gemini">Save</button>
+                        <input type="password" id="cohere-key" placeholder="..." />
+                        <button type="button" class="toggle-visibility" data-input="cohere-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="cohere">Save</button>
                     </div>
-                    <div class="status-message" id="gemini-status"></div>
+                    <div class="status-message" id="cohere-status"></div>
                 </div>
 
                 <div class="api-item">
                     <div class="api-info">
-                        <h3>Anthropic Claude</h3>
-                        <p>Get your API key from <a href="https://console.anthropic.com/" target="_blank">Anthropic Console</a></p>
+                        <h3>AI21 Labs</h3>
+                        <p>Get your free API key from <a href="https://studio.ai21.com/account/account" target="_blank">AI21 Studio</a></p>
                     </div>
                     <div class="api-input">
-                        <input type="password" id="claude-key" placeholder="sk-ant-..." />
-                        <button type="button" class="toggle-visibility" data-input="claude-key">👁️</button>
-                        <button type="button" class="save-single" data-llm="claude">Save</button>
+                        <input type="password" id="ai21-key" placeholder="..." />
+                        <button type="button" class="toggle-visibility" data-input="ai21-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="ai21">Save</button>
                     </div>
-                    <div class="status-message" id="claude-status"></div>
+                    <div class="status-message" id="ai21-status"></div>
                 </div>
 
                 <div class="api-item">
                     <div class="api-info">
-                        <h3>Mistral AI</h3>
-                        <p>Get your API key from <a href="https://console.mistral.ai/" target="_blank">Mistral Console</a></p>
+                        <h3>Groq</h3>
+                        <p>Get your free API key from <a href="https://console.groq.com/keys" target="_blank">Groq Console</a></p>
                     </div>
                     <div class="api-input">
-                        <input type="password" id="mistral-key" placeholder="..." />
-                        <button type="button" class="toggle-visibility" data-input="mistral-key">👁️</button>
-                        <button type="button" class="save-single" data-llm="mistral">Save</button>
+                        <input type="password" id="groq-key" placeholder="gsk_..." />
+                        <button type="button" class="toggle-visibility" data-input="groq-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="groq">Save</button>
                     </div>
-                    <div class="status-message" id="mistral-status"></div>
+                    <div class="status-message" id="groq-status"></div>
                 </div>
             </div>
 
@@ -77,10 +77,14 @@
             <div class="info-section">
                 <h3>ℹ️ Important Notes</h3>
                 <ul>
+                    <li><strong>Free APIs:</strong> All supported AI models offer generous free tiers for testing and development</li>
                     <li><strong>Security:</strong> Your API keys are stored locally in your browser and never sent to third parties</li>
-                    <li><strong>Costs:</strong> Each API call may incur costs based on your provider's pricing</li>
-                    <li><strong>Rate Limits:</strong> Be mindful of each provider's rate limits to avoid errors</li>
+                    <li><strong>Rate Limits:</strong> Free tiers have rate limits - be mindful to avoid errors</li>
                     <li><strong>Privacy:</strong> Your prompts and responses are only sent to the respective AI providers</li>
+                    <li><strong>Hugging Face:</strong> Uses inference API with pre-trained models - no training data exposure</li>
+                    <li><strong>Cohere:</strong> Free tier includes 100 requests per month with generous token limits</li>
+                    <li><strong>AI21:</strong> Free tier includes 10,000 free tokens per month for testing</li>
+                    <li><strong>Groq:</strong> Fast inference with generous free tier limits for popular models</li>
                 </ul>
             </div>
         </div>

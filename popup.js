@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('errorMessage');
 
     // LLM configurations
-    const llms = ['openai', 'gemini', 'claude', 'mistral'];
+    const llms = ['huggingface', 'cohere', 'ai21', 'groq'];
     
     // Event listeners
     settingsBtn.addEventListener('click', () => {
