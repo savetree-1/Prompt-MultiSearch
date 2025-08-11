@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const notification = document.getElementById('notification');
     
     const llmConfigs = [
-        { name: 'openai', key: 'openai_key', displayName: 'OpenAI' },
-        { name: 'gemini', key: 'gemini_key', displayName: 'Gemini' },
-        { name: 'claude', key: 'claude_key', displayName: 'Claude' },
-        { name: 'mistral', key: 'mistral_key', displayName: 'Mistral' }
+        { name: 'huggingface', key: 'huggingface_key', displayName: 'Hugging Face' },
+        { name: 'cohere', key: 'cohere_key', displayName: 'Cohere' },
+        { name: 'ai21', key: 'ai21_key', displayName: 'AI21 Labs' },
+        { name: 'groq', key: 'groq_key', displayName: 'Groq' }
     ];
 
     // Initialize
@@ -215,10 +215,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validateApiKey(llm, key) {
         const patterns = {
-            openai: /^sk-[a-zA-Z0-9]{48,}$/,
-            gemini: /^AIza[a-zA-Z0-9_-]{35}$/,
-            claude: /^sk-ant-[a-zA-Z0-9_-]+$/,
-            mistral: /^[a-zA-Z0-9]{32,}$/
+            huggingface: /^hf_[a-zA-Z0-9]{32,}$/,
+            cohere: /^[a-zA-Z0-9\-_]{40,}$/,
+            ai21: /^[a-zA-Z0-9]{32,}$/,
+            groq: /^gsk_[a-zA-Z0-9]{52}$/
         };
         
         const pattern = patterns[llm];
