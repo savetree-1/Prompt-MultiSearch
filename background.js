@@ -10,7 +10,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                     huggingface: { success: false, error: error.message },
                     cohere: { success: false, error: error.message },
                     ai21: { success: false, error: error.message },
-                    groq: { success: false, error: error.message }
+                    groq: { success: false, error: error.message },
+                    gemini: { success: false, error: error.message }
                 });
             });
         return true; // Keep message channel open for async response
@@ -36,7 +37,8 @@ async function handleLLMSearch(prompt) {
         huggingface: searchHuggingFace(prompt, keys.huggingface),
         cohere: searchCohere(prompt, keys.cohere),
         ai21: searchAI21(prompt, keys.ai21),
-        groq: searchGroq(prompt, keys.groq)
+        groq: searchGroq(prompt, keys.groq),
+        gemini: searchGemini(prompt, keys.gemini)
     };
 
     // Execute all searches in parallel
@@ -57,7 +59,8 @@ async function handleTestConnection(llm, apiKey, prompt) {
         huggingface: searchHuggingFace,
         cohere: searchCohere,
         ai21: searchAI21,
-        groq: searchGroq
+        groq: searchGroq,
+        gemini: searchGemini
     };
     
     const testFunction = testFunctions[llm];
@@ -75,12 +78,13 @@ async function handleTestConnection(llm, apiKey, prompt) {
 
 async function getApiKeys() {
     return new Promise((resolve) => {
-        chrome.storage.sync.get(['huggingface_key', 'cohere_key', 'ai21_key', 'groq_key'], (result) => {
+        chrome.storage.sync.get(['huggingface_key', 'cohere_key', 'ai21_key', 'groq_key', 'gemini_key'], (result) => {
             resolve({
                 huggingface: result.huggingface_key,
                 cohere: result.cohere_key,
                 ai21: result.ai21_key,
-                groq: result.groq_key
+                groq: result.groq_key,
+                gemini: result.gemini_key
             });
         });
     });
@@ -252,6 +256,70 @@ async function searchGroq(prompt, apiKey) {
 
         const data = await response.json();
         const content = data.choices?.[0]?.message?.content;
+        
+        if (!content) {
+            throw new Error('No content in response');
+        }
+
+        return { success: true, data: content };
+    } catch (error) {
+        return { success: false, error: error.message };
+    }
+}
+
+// Google Gemini API
+async function searchGemini(prompt, apiKey) {
+    if (!apiKey) {
+        return { success: false, error: 'NO_API_KEY' };
+    }
+
+    try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: prompt
+                    }]
+                }],
+                generationConfig: {
+                    temperature: 0.7,
+                    topK: 1,
+                    topP: 1,
+                    maxOutputTokens: 1000,
+                    stopSequences: []
+                },
+                safetySettings: [
+                    {
+                        category: "HARM_CATEGORY_HARASSMENT",
+                        threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                    },
+                    {
+                        category: "HARM_CATEGORY_HATE_SPEECH",
+                        threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                    },
+                    {
+                        category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                        threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                    },
+                    {
+                        category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+                        threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                    }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.error?.message || `HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
         
         if (!content) {
             throw new Error('No content in response');

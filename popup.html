@@ -16,7 +16,7 @@
         <div class="input-section">
             <textarea id="promptInput" placeholder="Enter your prompt here..."></textarea>
             <button id="searchBtn" class="search-btn">
-                <span id="searchText">Search All Free LLMs</span>
+                <span id="searchText">Search All AI Models</span>
                 <div id="loadingSpinner" class="spinner hidden"></div>
             </button>
         </div>
@@ -58,6 +58,16 @@
                     <div class="status-indicator" id="groq-status"></div>
                 </div>
                 <div class="card-body" id="groq-result">
+                    <div class="loading-text">Loading...</div>
+                </div>
+            </div>
+            
+            <div class="result-card" id="gemini-card">
+                <div class="card-header">
+                    <h3>Google Gemini</h3>
+                    <div class="status-indicator" id="gemini-status"></div>
+                </div>
+                <div class="card-body" id="gemini-result">
                     <div class="loading-text">Loading...</div>
                 </div>
             </div>

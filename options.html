@@ -66,6 +66,19 @@
                     </div>
                     <div class="status-message" id="groq-status"></div>
                 </div>
+
+                <div class="api-item premium-item">
+                    <div class="api-info">
+                        <h3>Google Gemini <span class="premium-badge">Premium</span></h3>
+                        <p>Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></p>
+                    </div>
+                    <div class="api-input">
+                        <input type="password" id="gemini-key" placeholder="AIza..." />
+                        <button type="button" class="toggle-visibility" data-input="gemini-key">👁️</button>
+                        <button type="button" class="save-single" data-llm="gemini">Save</button>
+                    </div>
+                    <div class="status-message" id="gemini-status"></div>
+                </div>
             </div>
 
             <div class="actions">
@@ -77,7 +90,8 @@
             <div class="info-section">
                 <h3>ℹ️ Important Notes</h3>
                 <ul>
-                    <li><strong>Free APIs:</strong> All supported AI models offer generous free tiers for testing and development</li>
+                    <li><strong>Free APIs:</strong> Hugging Face, Cohere, AI21, and Groq offer generous free tiers for testing</li>
+                    <li><strong>Premium API:</strong> Google Gemini provides advanced AI capabilities with usage-based pricing</li>
                     <li><strong>Security:</strong> Your API keys are stored locally in your browser and never sent to third parties</li>
                     <li><strong>Rate Limits:</strong> Free tiers have rate limits - be mindful to avoid errors</li>
                     <li><strong>Privacy:</strong> Your prompts and responses are only sent to the respective AI providers</li>
@@ -85,6 +99,7 @@
                     <li><strong>Cohere:</strong> Free tier includes 100 requests per month with generous token limits</li>
                     <li><strong>AI21:</strong> Free tier includes 10,000 free tokens per month for testing</li>
                     <li><strong>Groq:</strong> Fast inference with generous free tier limits for popular models</li>
+                    <li><strong>Google Gemini:</strong> Advanced multimodal AI with competitive pricing and high quality responses</li>
                 </ul>
             </div>
         </div>

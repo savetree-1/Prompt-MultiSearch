@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Prompt MultiSearch",
   "version": "1.0.0",
-  "description": "Search across multiple free AI models simultaneously - Hugging Face, Cohere, AI21, and Groq",
+  "description": "Search across multiple AI models simultaneously - Hugging Face, Cohere, AI21, Groq, and Google Gemini",
   "permissions": [
     "storage",
     "activeTab"
@@ -11,7 +11,8 @@
     "https://api-inference.huggingface.co/*",
     "https://api.cohere.ai/*",
     "https://api.ai21.com/*",
-    "https://api.groq.com/*"
+    "https://api.groq.com/*",
+    "https://generativelanguage.googleapis.com/*"
   ],
   "background": {
     "service_worker": "background.js"
