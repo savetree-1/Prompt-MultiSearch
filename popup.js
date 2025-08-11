@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('errorMessage');
 
     // LLM configurations
-    const llms = ['huggingface', 'cohere', 'ai21', 'groq'];
+    const llms = ['huggingface', 'cohere', 'ai21', 'groq', 'gemini'];
     
     // Event listeners
     settingsBtn.addEventListener('click', () => {

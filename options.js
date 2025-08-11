@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'huggingface', key: 'huggingface_key', displayName: 'Hugging Face' },
         { name: 'cohere', key: 'cohere_key', displayName: 'Cohere' },
         { name: 'ai21', key: 'ai21_key', displayName: 'AI21 Labs' },
-        { name: 'groq', key: 'groq_key', displayName: 'Groq' }
+        { name: 'groq', key: 'groq_key', displayName: 'Groq' },
+        { name: 'gemini', key: 'gemini_key', displayName: 'Google Gemini' }
     ];
 
     // Initialize
@@ -218,7 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
             huggingface: /^hf_[a-zA-Z0-9]{34}$/,
             cohere: /^[a-zA-Z0-9_-]{40,}$/,
             ai21: /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i,
-            groq: /^gsk_[a-zA-Z0-9_-]{50,}$/
+            groq: /^gsk_[a-zA-Z0-9_-]{50,}$/,
+            gemini: /^AIza[a-zA-Z0-9_-]{35}$/
         };
         
         const pattern = patterns[llm];
